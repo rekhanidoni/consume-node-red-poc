@@ -1,0 +1,190 @@
+<script type="text/javascript">
+    RED.nodes.registerType('schema-mapper',{
+        category: 'function',
+        color: '#a6bbff',
+        defaults: {
+            apiDocVersion:{value:"v3"},
+            refid:{value:""},
+            name:{value:"name"},
+            description:{value:"description"},
+            descriptionHTML:{value:""},
+            facets:{value:""},
+            facets_key:{value:""},
+            facets_value:{value:""},
+            status:{value:"draft"},
+            serviceType:{value:""},
+            tenant:{value:""},
+            updatedAt:{value:""},
+            labels:{value:""},
+            version:{value:"0"},
+            features:{value:""},
+            features_name:{value:""},
+            features_description:{value:""},
+            terms:{value:""},
+            serviceCategory:{value:"[{ id: 'default', name: 'default', description: 'default' }]"},
+            config:{value:""},
+            config_id:{value:""},
+            config_name:{value:""},
+            config_type:{value:""},
+            config_description:{value:""},
+            config_required:{value:false},
+            config_default:{value:""},
+            config_editable:{value:true},
+            config_group:{value:""},
+            config_binding:{value:""},
+            config_pattern:{value:""},
+            config_domainValueIds_value:{value:""},
+            config_domainValueIds_provisionValue:{value:""},
+            config_hidden:{value:"false"},
+            config_inputType:{value:""},
+            config_range_min:{value:""},
+            config_range_max:{value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "file.png",
+        label: function() {
+            return "schema-mapper";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="schema-mapper">
+    <section>
+        <h2>Service attributes map</h1>
+        <div class="form-row">
+            <label for="node-input-apiDocVersion"><i class="fa fa-tag"></i> api Doc Version</label>
+            <input type="text" id="node-input-apiDocVersion" placeholder="apiDocVersion">
+        </div> 
+        <div class="form-row">
+            <label for="node-input-refid"><i class="fa fa-tag"></i> Provider service id </label>
+            <input type="text" id="node-input-refid" placeholder="refid">
+        </div>
+        <div class="form-row">
+            <label for="node-input-name"><i class="fa fa-tag"></i> Name of the service</label>
+            <input type="text" id="node-input-name" placeholder="name">
+        </div>
+        <div class="form-row">
+                <label for="node-input-description"><i class="fa fa-tag"></i>Service Description</label>
+                <input type="text" id="node-input-description" placeholder="description">
+            </div>
+        <div class="form-row">
+            <label for="node-input-descriptionHTML"><i class="fa fa-tag"></i> URL describing service</label>
+            <input type="text" id="node-input-descriptionHTML" placeholder="descriptionHTML">
+        </div>
+        <div class="form-row">
+            <label for="node-input-facets"><i class="fa fa-tag"></i> Facets array attribute</label>
+            <input type="text" id="node-input-facets" placeholder="facets">
+        </div>
+        <div class="form-row">
+            <label for="node-input-facets_key"><i class="fa fa-tag"></i> Facets key</label>
+            <input type="text" id="node-input-facets_key" placeholder="facets_key">
+        </div>
+        <div class="form-row">
+                <label for="node-input-facets_values"><i class="fa fa-tag"></i> Facets values</label>
+                <input type="text" id="node-input-facets_values" placeholder="facets_values">
+        </div>
+        <div class="form-row">
+            <label for="node-input-serviceType"><i class="fa fa-tag"></i> serviceType</label>
+            <input type="text" id="node-input-serviceType" placeholder="serviceType">
+        </div>
+        <div class="form-row">
+            <label for="node-input-tenant"><i class="fa fa-tag"></i> tenant</label>
+            <input type="text" id="node-input-tenant" placeholder="tenant">
+        </div>
+        <div class="form-row">
+            <label for="node-input-updatedAt"><i class="fa fa-tag"></i> updatedAt</label>
+            <input type="text" id="node-input-updatedAt" placeholder="updatedAt">
+        </div>
+        <div class="form-row">
+            <label for="node-input-labels"><i class="fa fa-tag"></i> labels</label>
+            <input type="text" id="node-input-labels" placeholder="labels">
+        </div>
+        <div class="form-row">
+            <label for="node-input-features"><i class="fa fa-tag"></i> features array attribute</label>
+            <input type="text" id="node-input-features" placeholder="features">
+        </div>
+        <div class="form-row">
+            <label for="node-input-features_name"><i class="fa fa-tag"></i> features name</label>
+            <input type="text" id="node-input-features_name" placeholder="features_name">
+        </div>
+        <div class="form-row">
+                <label for="node-input-features_description"><i class="fa fa-tag"></i> features description</label>
+                <input type="text" id="node-input-features_description" placeholder="features_description">
+        </div>
+        <div class="form-row">
+            <label for="node-input-terms"><i class="fa fa-tag"></i> terms</label>
+            <input type="text" id="node-input-terms" placeholder="terms">
+        </div>
+    </section>
+    <section>
+        <h2>Configuration attributes map</h2>
+        <div class="form-row">
+            <label for="node-input-config"><i class="fa fa-tag"></i> configuration array attribute</label>
+            <input type="text" id="node-input-config" placeholder="config">
+        </div>
+        <div class="form-row">
+                <label for="node-input-config_id"><i class="fa fa-tag"></i> configuration id</label>
+                <input type="text" id="node-input-config_id" placeholder="config_id">
+        </div>
+        <div class="form-row">
+                <label for="node-input-config_name"><i class="fa fa-tag"></i> configuration name</label>
+                <input type="text" id="node-input-config_name" placeholder="config_name">
+        </div>
+        <div class="form-row">
+                <label for="node-input-config_description"><i class="fa fa-tag"></i> configuration description</label>
+                <input type="text" id="node-input-config_description" placeholder="config_description">
+        </div>
+        <div class="form-row">
+                <label for="node-input-config_default"><i class="fa fa-tag"></i> configuration default value</label>
+                <input type="text" id="node-input-config_default" placeholder="config_default">
+        </div>
+        <div class="form-row">
+                <label for="node-input-config_required"><i class="fa fa-tag"></i> is configuration mandatory</label>
+                <input type="text" id="node-input-config_required" placeholder="config_required">
+        </div>
+        <div class="form-row">
+                <label for="node-input-config_group"><i class="fa fa-tag"></i> configuration group</label>
+                <input type="text" id="node-input-config_group" placeholder="config_group">
+        </div>
+        <div class="form-row">
+                <label for="node-input-config_binding"><i class="fa fa-tag"></i> configuration binding</label>
+                <input type="text" id="node-input-config_binding" placeholder="config_binding">
+        </div>
+        <div class="form-row">
+                <label for="node-input-config_pattern"><i class="fa fa-tag"></i> configuration pattern</label>
+                <input type="text" id="node-input-config_pattern" placeholder="config_pattern">
+        </div>
+        <div class="form-row">
+                <label for="node-input-config_domainValueIds_value"><i class="fa fa-tag"></i> configuration domainValueIds value</label>
+                <input type="text" id="node-input-config_domainValueIds_value" placeholder="config_domainValueIds_value">
+        </div>
+        <div class="form-row">
+            <label for="node-input-config_domainValueIds_provisionValue"><i class="fa fa-tag"></i> configuration domainValueIds provisionValue</label>
+            <input type="text" id="node-input-config_domainValueIds_provisionValue" placeholder="config_domainValueIds_provisionValue">
+        </div>
+        <div class="form-row">
+            <label for="node-input-config_hidden"><i class="fa fa-tag"></i> Is config hidden</label>
+            <input type="text" id="node-input-config_hidden" placeholder="config_hidden">
+        </div>
+        <div class="form-row">
+            <label for="node-input-config_inputType"><i class="fa fa-tag"></i> configuration inputType</label>
+            <input type="text" id="node-input-config_inputType" placeholder="config_inputType">
+        </div>
+        <div class="form-row">
+            <label for="node-input-config_range_min"><i class="fa fa-tag"></i> configuration min value</label>
+            <input type="text" id="node-input-config_range_min" placeholder="config_range_min">
+        </div>
+        <div class="form-row">
+            <label for="node-input-config_range_max"><i class="fa fa-tag"></i> configuration max value</label>
+            <input type="text" id="node-input-config_range_max" placeholder="config_range_max">
+        </div>
+    </section>
+
+</script>
+
+<script type="text/x-red" data-help-name="schema-mapper">
+    <p>Map the consume service attributes to provider service attributes. The node displays the json attributes of consume service. User has to enter the json path of 
+        attributesfrom msg.payload which is passed as input to this node. The msg.payload should contain all the required details. The input should be an array of catalog/provider service objects.
+    If different apis are reuqired to fetch the entire info (i.e service info, configs info and config domain values info), then all the responses should be fetched and merged as single object</p>
+</script>
